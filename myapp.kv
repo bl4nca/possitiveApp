@@ -1,0 +1,50 @@
+# Define la pantalla de selección de idioma
+<PantallaSeleccionIdioma>:
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 20
+        spacing: 20
+        canvas.before:
+            Color:
+                rgba: 0.8941, 0.8275, 0.8157, 1  # Color de fondo #E3D4D0
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        Label:
+            text: "Selecciona tu idioma"
+            font_size: '24sp'
+            halign: 'center'
+
+        Button:
+            text: "Español"
+            size_hint: (1, 0.2)
+            background_color: 0.8, 0.6, 0.6, 1  # Botón un poco más oscuro que el fondo
+            on_press: app.root.get_screen('seleccion_idioma').seleccionar_idioma('es')
+
+        Button:
+            text: "Inglés"
+            size_hint: (1, 0.2)
+            background_color: 0.8, 0.6, 0.6, 1  # Botón un poco más oscuro que el fondo
+            on_press: app.root.get_screen('seleccion_idioma').seleccionar_idioma('en')
+
+# Define la pantalla para mostrar la frase del día
+<PantallaFraseDia>:
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 20
+        spacing: 20
+        canvas.before:
+            Color:
+                rgba: 0.8941, 0.8275, 0.8157, 1  # Color de fondo #E3D4D0
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        Label:
+            id: label_frase
+            text: app.frase_del_dia if app.frase_del_dia else "Frase no disponible"
+            font_size: '24sp'
+            halign: 'center'
+            valign: 'middle'
+            text_size: self.size
